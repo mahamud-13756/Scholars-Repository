@@ -4,11 +4,9 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
-
     const navigate = useNavigate();
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false); 
-    // useTitle('Register');
     const { createUser, updateUserProfileName } = useAuth();
 
     const handleRegister = async (event) => {
@@ -24,7 +22,6 @@ const Register = () => {
                 setError("Invalid Email Address!");
                 return;
             }
-
 
             setLoading(true);
 
@@ -46,7 +43,6 @@ const Register = () => {
                 role: "user",
                 status: "not updated",
             };
-
 
             fetch('http://localhost:5000/users', {
                 method: 'POST',
@@ -83,13 +79,8 @@ const Register = () => {
         }
     };
 
-
-
-
-
     const LoadingModal = () => (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            {/* <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32"> Loading...</div> */}
             <div className="min-h-[300px] min-w-[300px] rounded-lg flex items-center justify-center bg-base-300">
                 <span className="loading loading-spinner loading-lg"></span>
                 <h1 className='text-center'>Waiting for verification...</h1>
@@ -97,55 +88,41 @@ const Register = () => {
         </div>
     );
 
-
-
-
-
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col flex-row">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-3xl text-[#548235] font-bold">Be our member now!</h1>
-                </div>
-                <div className="card  w-full min-w-[400px] shadow-2xl bg-base-100">
+        <div className="hero min-h-screen bg-gradient-to-b from-green-400 to-blue-500 flex justify-center items-center">
+            <div className="w-full max-w-md">
+                <h1 className="text-3xl text-center text-white font-bold mb-6">Be our member now!</h1>
+                <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <form onSubmit={handleRegister}>
-                        <div className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Full Name</span>
-                                </label>
-                                <input required type="text" name="name" placeholder="enter your full name" className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input required type="email" name="email" placeholder="enter varsity mail" className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input required type="password" name="password" placeholder="password" className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Phone</span>
-                                </label>
-                                <input required type="text" name="phone" placeholder="enter your phone number" className="input input-bordered" />
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn bg-[#2F5597] text-white hover:bg-blue-700">Register</button>
-                            </div>
-                            {
-                                error && <label className="text-red-500 font-bold border px-2 rounded border-red-400 bg-red-50">
-                                    {error}
-                                </label>
-                            }
-                            <label className="">Already registered?
-                                <Link to={'/login'} className="label-text-alt link link-hover text-success" > Login now</Link>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+                                Full Name
                             </label>
+                            <input required type="text" name="name" placeholder="Enter your full name" className="input input-bordered w-full" />
                         </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                                Email
+                            </label>
+                            <input required type="email" name="email" placeholder="Enter varsity mail" className="input input-bordered w-full" />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                                Password
+                            </label>
+                            <input required type="password" name="password" placeholder="Password" className="input input-bordered w-full" />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
+                                Phone
+                            </label>
+                            <input required type="text" name="phone" placeholder="Enter your phone number" className="input input-bordered w-full" />
+                        </div>
+                        <div className="flex items-center justify-between">
+                            <button className="btn bg-blue-500 text-white hover:bg-blue-700" disabled={loading}>Register</button>
+                            <Link to="/login" className="text-sm text-green-700">Already registered? Login now</Link>
+                        </div>
+                        {error && <p className="text-red-500 text-xs italic mt-4">{error}</p>}
                     </form>
                 </div>
             </div>

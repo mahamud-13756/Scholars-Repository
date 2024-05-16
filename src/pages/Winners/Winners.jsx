@@ -21,7 +21,7 @@ const Winners = () => {
   }
 
   return (
-    <div className='w-full bg-gray-200 p-10'>
+    <div className='w-full bg-gradient-to-b from-green-400 to-blue-500 p-10'>
       <div className='container mx-auto p-10'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
           {top10LeaderBoardData?.map((data, index) => (

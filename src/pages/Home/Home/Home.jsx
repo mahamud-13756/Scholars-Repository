@@ -3,11 +3,10 @@ import RecentBooks from "../RecentBooks/RecentBooks";
 import RecentNotes from "../RecentNotes/RecentNotes";
 import RecentQuestions from "../RecentQuestions/RecentQuestions";
 import RecentSlides from "../RecentSlides/RecentSlides";
-import Test from "../Test/Test";
 
 const Home = () => {
     return (
-        <div className='text-white'> {/* Add text-white class to change text color to white */}
+        <div className='bg-gradient-to-b from-green-400 to-blue-500 text-white'>
             <Banner></Banner>
             {/* <Test></Test> */}
             <RecentQuestions></RecentQuestions>

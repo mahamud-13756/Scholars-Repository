@@ -56,7 +56,7 @@ const Dashboard = () => {
             <Helmet>
                 <title>scholars Repository || Dashboard</title>
             </Helmet>
-            <label onClick={() => toggleFunction()} className="btn bg-blue-300 lg:hidden">
+            <label onClick={() => toggleFunction()} className="btn bg-gradient-to-b from-green-400 to-blue-500 lg:hidden">
                 {
                     toggleMenu ?
                         <GrClose></GrClose>
@@ -65,7 +65,7 @@ const Dashboard = () => {
                 }
             </label>
             <div className="flex ">
-                <div className={`bg-blue-200 p-2 md:pt-10 md:mt-10 w-8/12 md:w-4/12 xl:w-3/12 2xl:w-2/12  border z-10 relative ${toggleMenu ? "" : "hidden"}`}>
+                <div className={`bg-gradient-to-b from-green-400 to-blue-500 p-2 md:pt-10 md:mt-10 w-8/12 md:w-4/12 xl:w-3/12 2xl:w-2/12  border z-10 relative ${toggleMenu ? "" : "hidden"}`}>
                     <div className="flex flex-col mt-10 sm:mt-10 lg:flex-row sm:gap-2 items-center ps-2 p-2">
                         <label className="btn btn-circle avatar bg-blue-700 hover:bg-slate-700 text-2xl" >
                             {
